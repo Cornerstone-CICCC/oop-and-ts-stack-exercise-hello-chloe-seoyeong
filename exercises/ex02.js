@@ -6,14 +6,24 @@ const Stack = require('../lib/Stack')
 
 function lowercaseStrings(stack) {
   // your code here
+  let tempStack = new Stack();
+
+  while(!stack.isEmpty()) {
+    let removedElement = stack.remove();
+    tempStack.add(removedElement.toLowerCase());
+  }
+
+  while(!tempStack.isEmpty()) {
+    stack.add(tempStack.remove())
+  }
 }
 
 // Create stack
 const stack = new Stack();
-stack.push("Hello");
-stack.push("woRLd");
-stack.push("good");
-stack.push("MORNING");
+stack.add("Hello");
+stack.add("woRLd");
+stack.add("good");
+stack.add("MORNING");
 
 lowercaseStrings(stack)
 console.log(stack.printStack()) // ["hello", "world", "good", "morning"]
