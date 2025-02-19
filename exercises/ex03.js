@@ -9,13 +9,13 @@ function removeDuplicates(stack) {
 
   while(!stack.isEmpty()) {
     let targetElement = stack.remove();
-    let thirdStack = new Stack();
 
-    tempStack.add(targetElement);
-    while (!tempStack.isEmpty() && tempStack.peek() !== targetElement) {
-      thirdStack.add(tempStack.remove())
+    if(tempStack.size() === 0) {
+      tempStack.add(targetElement)
     }
-
+    while(!tempStack.isEmpty() && !tempStack.items.includes(targetElement)) {
+      tempStack.add(targetElement);
+    }
   }
 
 
